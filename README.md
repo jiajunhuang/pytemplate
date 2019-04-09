@@ -1,4 +1,4 @@
-# Python 后端开发框架模板
+# Python3 后端开发框架模板
 
 - Flask
 - SQLAlchemy
