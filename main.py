@@ -11,9 +11,9 @@ app = Flask(__name__)
 app.register_blueprint(hello_bp)
 
 
-@app.route("/")
-def hello():
-    return "Hello World!"
+@app.route("/ping")
+def ping():
+    return "pong"
 
 
 if __name__ == "__main__":
