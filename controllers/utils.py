@@ -1,3 +1,5 @@
+import functools
+
 from flask import (
     request,
     jsonify,
@@ -23,6 +25,7 @@ def failed(code=400, msg="", data=None):
 
 def binding_schemma(schema):
     def wrapper(func):
+        @functools.wraps(func)
         def inner(*args, **kwargs):
             # 获取参数
             arguments = request.get_json() or request.form or request.args
