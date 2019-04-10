@@ -5,3 +5,4 @@ alembic==1.0.8
 gunicorn==19.9.0
 requests==2.21.0
 marshmallow==2.19.2
+gevent==1.4.0
