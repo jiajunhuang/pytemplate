@@ -25,6 +25,21 @@ class BaseMixin:
     updated_at = Column(DateTime, nullable=False, default=datetime.datetime.now, onupdate=datetime.datetime.now)
     deleted_at = Column(DateTime, nullable=True, index=True)
 
+    @classmethod
+    def get_by_id(cls, session, item_id):
+        """session should be SQLAlchemy Session object"""
+        return session.query(cls).filter(
+            cls.id == item_id,
+            cls.deleted_at == None,  # noqa
+        ).first()
+
+    @classmethod
+    def get_by_id_list(cls, session, item_id_list):
+        return session.query(cls).filter(
+            cls.id.in_(item_id_list),
+            cls.deleted_at == None,  # noqa
+        ).all()
+
 
 @contextlib.contextmanager
 def get_session():
