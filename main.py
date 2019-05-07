@@ -2,13 +2,12 @@ import logging
 
 from flask import Flask
 
-from controllers.hello import hello_bp
+from loadbp import load_bp
 
 logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
-
-app.register_blueprint(hello_bp)
+load_bp(app)
 
 
 @app.route("/ping")
