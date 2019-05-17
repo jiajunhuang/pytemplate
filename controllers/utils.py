@@ -23,7 +23,7 @@ def failed(code=400, msg="", data=None):
     return response(code, msg, data)
 
 
-def binding_schemma(schema):
+def binding_schema(schema):
     def wrapper(func):
         @functools.wraps(func)
         def inner(*args, **kwargs):

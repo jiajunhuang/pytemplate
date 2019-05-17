@@ -3,9 +3,9 @@ from models.base import (
     engine,
     get_session,
 )
-from models.hello import HelloLog
+from models.user import User
 
 
 __all__ = [
-    "Base", "engine", "get_session", "HelloLog",
+    "Base", "engine", "get_session", "User",
 ]

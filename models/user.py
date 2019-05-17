@@ -9,7 +9,7 @@ from models.base import (
 )
 
 
-class HelloLog(Base, BaseMixin):
-    __tablename__ = "hello_log"
+class User(Base, BaseMixin):
+    __tablename__ = "user"
 
     name = Column(String(256), nullable=False)
