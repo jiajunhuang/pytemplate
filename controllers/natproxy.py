@@ -30,6 +30,20 @@ def check_token():
         return succeed(msg="找到用户", data={"addr": user.addr or ""})
 
 
+@natproxy_bp.route("/addr")
+def check_addr():
+    addr = request.args.get("addr")
+    if not addr:
+        return failed(msg="需要addr")
+
+    with get_session() as s:
+        user = User.get_by_addr(s, addr)
+        if not user:
+            return failed(code=404, msg="无此addr")
+
+        return succeed(msg="此addr已经存在")
+
+
 @natproxy_bp.route("/addr", methods=["POST"])
 @json_required
 def natproxy(json_dict):

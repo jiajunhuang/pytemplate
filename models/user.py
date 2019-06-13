@@ -56,6 +56,13 @@ class User(Base, BaseMixin):
             cls.deleted_at.is_(None),
         ).first()
 
+    @classmethod
+    def get_by_addr(cls, session, addr):
+        return session.query(cls).filter(
+            cls.addr == addr,
+            cls.deleted_at.is_(None),
+        ).first()
+
     @staticmethod
     def gen_password(password):
         return bcrypt.hashpw(password.encode("utf8"), bcrypt.gensalt()).decode("utf8")
