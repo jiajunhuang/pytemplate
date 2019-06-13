@@ -1,8 +1,8 @@
 import functools
 
 from flask import (
-    request,
     jsonify,
+    request,
 )
 
 
@@ -23,22 +23,12 @@ def failed(code=400, msg="", data=None):
     return response(code, msg, data)
 
 
-def binding_schema(schema):
-    def wrapper(func):
-        @functools.wraps(func)
-        def inner(*args, **kwargs):
-            # 获取参数
-            arguments = request.get_json() or request.form or request.args
-            if not arguments:
-                return failed(msg="请检查参数")
+def json_required(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        json_dict = request.get_json()
+        if not json_dict:
+            return failed()
 
-            # 校验
-            data = schema().load(arguments)
-            if data.errors:
-                return failed(msg="{}".format(data.errors))
-
-            # 执行函数
-            return func(data.data, *args, **kwargs)
-
-        return inner
+        return func(json_dict, *args, **kwargs)
     return wrapper

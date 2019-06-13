@@ -1,0 +1,20 @@
+- hosts: blog
+  remote_user: root
+  tasks:
+    - name: sync code
+      synchronize:
+        src: ./
+        dest: /data/tools/code/
+        recursive: yes
+        delete: yes
+        rsync_opts:
+          - "--chown=www-data"
+          - "--exclude=.git"
+
+    - name: pip install -r requirements.txt
+      shell: /data/tools/env/bin/pip install -r requirements.txt
+      args:
+        chdir: /data/tools/code/
+
+    - name: reload tools process
+      shell: supervisorctl update && supervisorctl restart tools:*
