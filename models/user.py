@@ -22,6 +22,8 @@ class User(Base, BaseMixin):
     verified = Column(Boolean, nullable=False, default=False)
     token = Column(String(64), nullable=False, unique=True)
     addr = Column(String(256), index=True)
+    is_vip = Column(Boolean, default=False)
+    natproxy_disconnect = Column(Boolean, default=False)
 
     @classmethod
     def register(cls, session, name, email, password):
