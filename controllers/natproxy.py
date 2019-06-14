@@ -27,7 +27,12 @@ def check_token():
         if not user:
             return failed(msg="token无效")
 
-        return succeed(msg="找到用户", data={"addr": user.addr or ""})
+        data = {
+            "addr": user.addr or "",
+            "disconnect": bool(user.natproxy_disconnect),
+        }
+
+        return succeed(msg="找到用户", data=data)
 
 
 @natproxy_bp.route("/addr")
@@ -60,3 +65,21 @@ def natproxy(json_dict):
         s.commit()
 
         return succeed(msg="成功更新用户分配的公网地址")
+
+
+@natproxy_bp.route("/status", methods=["PUT"])
+@json_required
+def update_status(json_dict):
+    token = json_dict["token"]
+    disconnect = json_dict["disconnect"]
+
+    with get_session() as s:
+        user = User.get_by_token(s, token)
+        if not user:
+            return failed(msg="token无效")
+
+        user.natproxy_disconnect = True if disconnect else False
+        s.add(user)
+        s.commit()
+
+        return succeed(msg="成功更新用户连接状态")
