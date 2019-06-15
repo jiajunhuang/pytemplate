@@ -67,7 +67,7 @@ def natproxy(json_dict):
         return succeed(msg="成功更新用户分配的公网地址")
 
 
-@natproxy_bp.route("/status", methods=["PUT"])
+@natproxy_bp.route("/status", methods=["POST"])
 @json_required
 def update_status(json_dict):
     token = json_dict["token"]
