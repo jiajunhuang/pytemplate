@@ -1,16 +1,19 @@
 from flask import (
     Blueprint,
-    request,
-)
-from controllers.utils import (
-    succeed,
+    render_template,
 )
 
+from models import (
+    get_session,
+    Kindle,
+)
 
-mailgun_bp = Blueprint("mailgun", __name__, url_prefix="/mailgun")
+
+kindle_bp = Blueprint("kindle", __name__, url_prefix="/kindle")
 
 
-@mailgun_bp.route("/kindle", methods=["POST"])
-def kindle():
-    print(request.data)
-    return succeed()
+@kindle_bp.route("/<email>")
+def get_by_email(email):
+    with get_session() as s:
+        item = Kindle.get_by_email(s, email)
+        return render_template("kindle.html", item=item)
