@@ -9,9 +9,7 @@
 <div class="card">
   <div class="card-body">
       {% for i in items %}
-      <pre style="white-space: pre-wrap">
-      {{ i.rstrip() }}
-      </pre>
+      <p>{{ i.rstrip() }}</p>
       {% endfor %}
   </div>
 </div>
