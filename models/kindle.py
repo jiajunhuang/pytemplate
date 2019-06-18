@@ -20,8 +20,7 @@ class Kindle(Base, BaseMixin):
 
     @classmethod
     def get_by_email(cls, session, email, minutes=10):
-        current_time = datetime.datetime.utcnow()
-        serveral_minutes_ago = current_time - datetime.timedelta(minutes=minutes)
+        serveral_minutes_ago = datetime.datetime.now() - datetime.timedelta(minutes=minutes)
 
         return session.query(cls).filter(
             cls.sender == email,
