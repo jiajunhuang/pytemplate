@@ -1,10 +1,34 @@
 {% extends "base.html" %}
 
 {% block include_meta %}
-<meta name="keywords" content="kindle,notes,export,highlights,online">
-<meta name="description" content="Jiajun's Toolset, an online service that help you to export your kindle notes/highlights to markdown/json/plaintext">
+<meta name="keywords" content="kindle,notes,export,highlights,online,kindle笔记,导出">
+<meta name="description" content="an online service that help you to export your kindle notes/highlights to markdown/json/plaintext">
 {% endblock %}
 
 {% block content %}
-hello, world!
+<h2>Step 1: send your Kindle highlights/notes to <a href="mailto:kindle@email.jiajunhuang.com">kindle@email.jiajunhuang.com</a></h2>
+<img class="img-fluid" src="/static/share.png" alt="export your kindle highlights/notes to text step by step"></img>
+<h2>Step 2: type the email you sent Kindle highlights/notes, then click the button!</h2>
+<p>in the example above, it's xxxx@icloud.com</p>
+<div class="input-group mb-3">
+    <input id="email" type="text" class="form-control" placeholder="type your email that sent Kindle highlights/notes">
+    <div class="input-group-append">
+        <button class="btn btn-success" type="button" id="see_notes">Go</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block include_js %}
+<script>
+    $(function() {
+        $("#see_notes").click(function() {
+            var email = $("#email").val();
+            if (email == "") {
+                alert("type your email first");
+                return
+            }
+            window.location.href = "/kindle/" + email;
+        })
+    })
+</script>
 {% endblock %}
