@@ -21,17 +21,17 @@
         <title>
             {% if title %}{{ title }} - {% endif %}{% if subtitle %}{{ subtitle }} - {% endif %}{{ config.SITE_NAME }}
         </title>
-        {% if GA_CODE %}
+        {% if config.GA_CODE %}
         <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_CODE }}"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.GA_CODE }}"></script>
         <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '{{ GA_CODE }}');
+        gtag('config', '{{ config.GA_CODE }}');
         </script>
         {% endif %}
-        {% if not DISABLE_AD %}
+        {% if not config.DISABLE_AD %}
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({
