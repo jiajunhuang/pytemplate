@@ -24,4 +24,4 @@ def html_to_text(s):
 def get_by_email(email):
     with get_session() as s:
         item = Kindle.get_by_email(s, email)
-        return render_template("kindle.html", items=html_to_text(item.content))
+        return render_template("kindle.html", items=html_to_text(item.content) if item else [])
