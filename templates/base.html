@@ -9,12 +9,12 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-status-bar-style" content="#F8F9FA">
         <!-- Android -->
-        <link rel="shortcut icon" href="/static/apple-touch-icon.png">
+        <link rel="shortcut icon" href="https://jiajunhuang.com/static/apple-touch-icon.png">
         <meta name="theme-color" content="#F8F9FA">
         {% block include_meta %}{% endblock %}
 
         <!-- Bootstrap CSS -->
-        <link rel="apple-touch-icon" href="/static/apple-touch-icon.png">
+        <link rel="apple-touch-icon" href="https://jiajunhuang.com/static/apple-touch-icon.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
         {% block include_css %}{% endblock %}
 
@@ -52,31 +52,13 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <form class="form-inline mr-auto" action="/search" method="POST">
-                            <input class="form-control mr-sm-2" type="search" placeholder="搜索" name="search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
 
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">首页</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="https://github.com/jiajunhuang/blog">Github</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/sharing">分享</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/notes">随想</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/projects">作品</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/friends">友链</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/aboutme">关于</a>
+                                <a class="nav-link" href="/">Index</a>
                             </li>
                         </ul>
                     </div>
@@ -85,10 +67,8 @@
 
             <main role="main" class="container">
                 <div id="body" class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-12">
                         {% block content %}{% endblock %}
-                    </div>
-                    <div class="col-md-3">
                     </div>
                 </div>
             </main>
