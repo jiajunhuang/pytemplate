@@ -11,6 +11,7 @@ logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 load_bp(app)
+app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024  # 最多传输1M笔记
 # global variables
 for k, v in config.FLASK_CONFIG.items():
     app.config[k] = v
