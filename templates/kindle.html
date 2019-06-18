@@ -8,9 +8,13 @@
 {% block content %}
 <div class="card">
   <div class="card-body">
+      {% if items %}
       {% for i in items %}
       <p>{{ i.rstrip() }}</p>
       {% endfor %}
+      {% else %}
+      <p>Have not received your email yet(or it's too old for your email, server will delete it in 10 minutes after received), try to send it to kindle@email.jiajunhuang.com again?</p>
+      {% endif %}
   </div>
 </div>
 {% endblock %}
