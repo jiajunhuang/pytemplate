@@ -85,7 +85,7 @@ def update_status(json_dict):
         return succeed(msg="成功更新用户连接状态")
 
 
-@natproxy_bp.route("/user/<str:token>")
+@natproxy_bp.route("/user/<token>")
 def get_status(token):
     with get_session() as s:
         user = User.get_by_token(s, token)
