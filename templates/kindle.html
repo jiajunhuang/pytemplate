@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 
 {% block include_meta %}
-<meta name="keywords" content="kindle,notes,export,highlights,online">
-<meta name="description" content="Jiajun's Toolset, an online service that help you to export your kindle notes/highlights to markdown/json/plaintext">
+<meta name="keywords" content="kindle,notes,export,highlights,online,kindle笔记,导出,在线">
+<meta name="description" content="an online service that help you to export your kindle notes/highlights to markdown/json/plaintext(在线帮你导出你的Kindle笔记)">
 {% endblock %}
 
 {% block content %}
+<div class="alert alert-danger" role="alert">
+    Server will delete your data in 10 minutes after we received your email, so copy & paste your notes to your clipboard before you close/refresh this page, or you'll have to resend it(服务器会在收到邮件的10分钟后删除内容，所以在离开/刷新本页面之前确保已经复制了笔记内容，否则就要重来一遍啦！)
+</div>
+
 <div class="card">
   <div class="card-body">
       {% if items %}
@@ -13,7 +17,10 @@
       <p>{{ i.rstrip() }}</p>
       {% endfor %}
       {% else %}
-      <p>Have not received your email yet, please wait a minute(or it's too old for your email, server will delete it in 10 minutes after received), try to send it to <a href="mailto:kindle@email.jiajunhuang.com">kindle@email.jiajunhuang.com</a> again?</p>
+      <p>Have not received your email yet, please wait a minute(or it's too old for your email, server will delete it in 10 minutes after received),
+      try to send it to <a href="mailto:kindle@email.jiajunhuang.com">kindle@email.jiajunhuang.com</a> again if you're waiting more than 10 minutes?
+      (邮件收发需要一点时间，请稍等（也有可能是太长时间才点按钮来到这个页面，服务器会在收到邮件的10分钟之后删除该邮件)，如果仍然没有的话，
+      请重新发一次邮件到<a href="mailto:kindle@email.jiajunhuang.com">kindle@email.jiajunhuang.com</a></p>
       {% endif %}
   </div>
 </div>

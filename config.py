@@ -10,8 +10,8 @@ class Config:
 
         # 配置，一般是全局变量
         self.FLASK_CONFIG = {
-            "SITE_NAME": os.getenv("SITE_NAME", "Kindle Highlights/Notes Export"),
-            "SITE_SLOGAN": os.getenv("SITE_SLOGAN", "Export your kindle highlights/notes"),
+            "SITE_NAME": os.getenv("SITE_NAME", "Kindle Highlights/Notes Export(Kindle笔记导出)"),
+            "SITE_SLOGAN": os.getenv("SITE_SLOGAN", "Export your kindle highlights/notes(导出你的Kindle笔记)"),
             "GA_CODE": os.getenv("GA_CODE"),  # Google Analytics Code
             "DISABLE_AD": os.getenv("DISABLE_AD") == "True",
         }

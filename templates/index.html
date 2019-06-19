@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
 {% block include_meta %}
-<meta name="keywords" content="kindle,notes,export,highlights,online,kindle笔记,导出">
-<meta name="description" content="an online service that help you to export your kindle notes/highlights to markdown/json/plaintext">
+<meta name="keywords" content="kindle,notes,export,highlights,online,kindle笔记,导出,在线">
+<meta name="description" content="an online service that help you to export your kindle notes/highlights to markdown/json/plaintext(在线帮你导出你的Kindle笔记)">
 {% endblock %}
 
 {% block content %}
-<h3>Step 1: send your Kindle highlights/notes to <a class="text-break" href="mailto:kindle@email.jiajunhuang.com">kindle@email.jiajunhuang.com</a></h3>
+<h3>Step 1: send your Kindle highlights/notes to <a class="text-break" href="mailto:kindle@email.jiajunhuang.com">kindle@email.jiajunhuang.com</a>as shown below(第一步：按照下图把你的笔记导出，发送电子邮件给<a class="text-break" href="mailto:kindle@email.jiajunhuang.com">kindle@email.jiajunhuang.com</a>)</h3>
 <img class="img-fluid" src="/static/share.png" alt="export your kindle highlights/notes to text step by step"></img>
-<h3>Step 2: type the email you sent Kindle highlights/notes, then click the button!</h3>
-<p>in the example above, it's xxxx@icloud.com because I use iCloud to send it</p>
+<h3>Step 2: type the email you sent Kindle highlights/notes, then click the button!(第二步，输入你发送笔记用的邮箱，然后点绿色按钮查看)</h3>
+<p>in the example above, it's xxxx@icloud.com because I use iCloud to send it(在上图的示例中，我应该输入xxxx@icloud.com，因为我用的iCloud发送的)</p>
 <div class="input-group mb-3">
-    <input id="email" type="text" class="form-control" placeholder="type your email that sent Kindle highlights/notes">
+    <input id="email" type="text" class="form-control" placeholder="type your email that sent Kindle highlights/notes(输入你发送笔记用的邮箱)">
     <div class="input-group-append">
-        <button class="btn btn-success" type="button" id="see_notes">Go</button>
+        <button class="btn btn-success" type="button" id="see_notes">Go(获取笔记)</button>
     </div>
 </div>
 {% endblock %}
